@@ -7,11 +7,15 @@ export default {
         'primary': '#94C700',
         'secondary': '#575855',
         'secondary-blue': '#80CAE3',
+        'secondary-red': '#E39980',
         'accent': '#000000',
       },
       fontFamily: {
         'sans': ['Arial', 'sans-serif'],
       },
+      backgroundImage: {
+        'bento': "url('bento.webp')",
+      }
     },
   },
   plugins: [],
