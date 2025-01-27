@@ -1,0 +1,69 @@
+---
+const courses = [
+  {
+    title: "Herramienta de diagnostico pastoral",
+    type: "tool",
+    shortDescription:
+      "¿Quieres saber si tienes las 🛠 perfectas en tu pastoral? Contesta a este formulario y te ayudaremos a identificar qué áreas necesitas mejorar 👨‍🔧 o de lo contrario celebrarlo 🎉.",
+    url: "https://diagnostico.rpj.es/",
+    imageURL: "",
+    numberOfClasses: null,
+    cost: "¡Gratis!",
+  },
+];
+---
+
+<section class="mb-12 flex
+  flex-col
+  items-center
+  justify-center">
+  <div>
+    <button
+      class="p-2 pe-4 ps-4 m-1 text-sm font-semibold bg-primary underline text-white rounded-full"
+      >Todos</button
+    >
+    <button
+      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      >Cursos</button
+    >
+    <button
+      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      >Talleres</button
+    >
+    <button
+      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      >Herrmientas</button
+    >
+  </div>
+  <div class="mt-4 text-white grid grid-cols-3 m-28">
+    {
+      Array(4)
+        .fill(null)
+        .map(() => (
+          <article
+            style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('courses/herramienta-de-procesos-pastorales.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+      "
+            class="rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
+          >
+            <h4 class="text-4xl font-semibold">
+              Herramienta de diagnóstico pastoral
+            </h4>
+            <div class="flex justify-start items-end mt-2">
+              <p class="mt-2">
+                ¿Quieres saber si tienes las 🛠 perfectas en tu pastoral?
+                Contesta a este formulario y te ayudaremos a identificar qué
+                áreas necesitas mejorar 👨‍🔧 o de lo contrario celebrarlo 🎉.
+              </p>
+              <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
+                0€
+              </span>
+            </div>
+          </article>
+        ))
+    }
+  </div>
+</section>
