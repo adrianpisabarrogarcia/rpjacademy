@@ -12,60 +12,137 @@ const courses = [
     dateStart: "2023-01-01",
     dateEnd: "2023-01-31",
   },
+  {
+    title: "Curso de Liderazgo Pastoral",
+    type: "course",
+    shortDescription:
+      "Aprende las habilidades esenciales para liderar equipos pastorales efectivos.",
+    url: "#",
+    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
+    numberOfClasses: 8,
+    priceEuros: 49.99,
+    dateStart: "2023-02-01",
+    dateEnd: "2023-03-15",
+  },
+  {
+    title: "Taller de Comunicación Efectiva",
+    type: "workshop",
+    shortDescription:
+      "Mejora tus habilidades de comunicación para transmitir el mensaje de manera clara y efectiva.",
+    url: "#",
+    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
+    numberOfClasses: 3,
+    priceEuros: 29.99,
+    dateStart: "2023-04-10",
+    dateEnd: "2023-04-24",
+  },
+  {
+    title: "Herramienta de Planificación Anual",
+    type: "tool",
+    shortDescription:
+      "Organiza tu año pastoral con esta herramienta de planificación estratégica.",
+    url: "#",
+    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
+    numberOfClasses: null,
+    priceEuros: 0.0,
+    dateStart: "2023-05-01",
+    dateEnd: null,
+  },
 ];
 ---
 
-<section class="mb-12 flex
-  flex-col
-  items-center
-  justify-center">
+<section class="mb-12 flex flex-col items-center justify-center">
   <div>
     <button
-      class="p-2 pe-4 ps-4 m-1 text-sm font-semibold bg-primary underline text-white rounded-full"
-      >Todos</button
+      id="filter-all"
+      class="filter-btn p-2 pe-4 ps-4 m-1 text-sm font-semibold bg-primary text-white rounded-full"
+      data-filter="all">Todos</button
     >
     <button
-      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
-      >Cursos</button
+      id="filter-course"
+      class="filter-btn p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      data-filter="course">Cursos</button
     >
     <button
-      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
-      >Talleres</button
+      id="filter-workshop"
+      class="filter-btn p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      data-filter="workshop">Talleres</button
     >
     <button
-      class="p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
-      >Herrmientas</button
+      id="filter-tool"
+      class="filter-btn p-2 pe-4 ps-4 m-1 text-sm hover:bg-primary bg-secondary text-white rounded-full"
+      data-filter="tool">Herramientas</button
     >
   </div>
-  <div class="mt-4 text-white grid grid-cols-3 m-28">
+  <div
+    class="mt-4 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-8 lg:mx-16"
+  >
     {
-      Array(4)
-        .fill(null)
-        .map(() => (
-          <article
-            style="
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('courses/herramienta-de-procesos-pastorales.webp');
-    background-size: cover;
-    background-position: center;
-    color: white;
-      "
-            class="rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
-          >
-            <h4 class="text-4xl font-semibold">
-              Herramienta de diagnóstico pastoral
-            </h4>
-            <div class="flex justify-start items-end mt-2">
-              <p class="mt-2">
-                ¿Quieres saber si tienes las 🛠 perfectas en tu pastoral?
-                Contesta a este formulario y te ayudaremos a identificar qué
-                áreas necesitas mejorar 👨‍🔧 o de lo contrario celebrarlo 🎉.
-              </p>
-              <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
-                0€
-              </span>
-            </div>
-          </article>
-        ))
+      courses.map((course) => (
+        <article
+          class="course-item rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
+          data-type={course.type}
+          style={`
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${course.imageURL}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+          `}
+        >
+          <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
+            {course.title}
+          </h4>
+          <div class="flex flex-col md:flex-row justify-start items-end mt-2">
+            <p class="mt-2">{course.shortDescription}</p>
+            <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
+              {course.priceEuros > 0 ? `${course.priceEuros}€` : "0€"}
+            </span>
+          </div>
+        </article>
+      ))
     }
   </div>
+
+  <script is:inline>
+    // Función para filtrar los cursos
+    function filterCourses(filterType) {
+      const courseItems = document.querySelectorAll(".course-item");
+      const filterButtons = document.querySelectorAll(".filter-btn");
+
+      // Actualizar clases de los botones
+      filterButtons.forEach((button) => {
+        if (button.dataset.filter === filterType) {
+          button.classList.add("bg-primary");
+          button.classList.remove("bg-secondary");
+        } else {
+          button.classList.remove("bg-primary");
+          button.classList.add("bg-secondary");
+        }
+      });
+
+      // Mostrar/ocultar cursos según el filtro
+      courseItems.forEach((item) => {
+        if (filterType === "all" || item.dataset.type === filterType) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+
+    // Agregar event listeners a los botones
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterButtons = document.querySelectorAll(".filter-btn");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filterType = button.dataset.filter;
+          filterCourses(filterType);
+        });
+      });
+
+      // Inicialmente mostrar todos
+      filterCourses("all");
+    });
+  </script>
 </section>
