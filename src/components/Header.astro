@@ -1,122 +1,215 @@
-<header
-  class="bg-primary text-white py-4 flex flex-row items-center place-content-around"
->
-  <div class="flex flex-row items-center justify-center">
-    <img
-      src="logo.webp"
-      alt="Logotipo de la Academia de Pastoral Jvenenil RPJ"
-      class="w-24 h-24 mx-auto me-3"
-    />
-    <h1 class="text-2xl font-bold">Red Pastoral Juvenil<br />Academy</h1>
+<script>
+  // Toggle mobile menu
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+
+<header class="bg-primary text-white py-4 px-4">
+  <!-- Desktop Header -->
+  <div class="hidden md:flex flex-row items-center justify-between max-w-7xl mx-auto">
+    <div class="flex flex-row items-center">
+      <img
+        src="logo.webp"
+        alt="Logotipo de la Academia de Pastoral Jvenenil RPJ"
+        class="w-20 h-20 me-3"
+      />
+      <h1 class="text-xl lg:text-2xl font-bold">Red Pastoral Juvenil<br />Academy</h1>
+    </div>
+    <div class="flex flex-row items-center gap-1">
+      <a
+        href="/"
+        class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-home"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path
+            d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path
+            d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg
+        >
+        Inicio
+      </a>
+      <a
+        href="/cursos"
+        class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-school"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path><path
+            d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path></svg
+        >
+        Cursos
+      </a>
+      <a
+        href="/cursos"
+        class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"
+          ></path><path d="M12 19l0 .01"></path></svg
+        >
+        FAQs
+      </a>
+      <a
+        href="/contacto"
+        class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-mail"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+          ></path><path d="M3 7l9 6l9 -6"></path></svg
+        >
+        Contacto
+      </a>
+    </div>
+    <div class="flex flex-row items-center gap-1">
+      <a
+        href="https://rpj.es"
+        target="_blank"
+        class="font-bold text-white border border-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-2"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path>
+          <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path>
+        </svg>
+        Web RPJ
+      </a>
+      <a
+        href="/login"
+        class="font-bold hover:text-white hover:bg-secondary hover:border-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg bg-white text-black p-2 ps-3 pe-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="me-2 icon icon-tabler icons-tabler-outline icon-tabler-key"
+          ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+            d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z"
+          ></path><path d="M15 9h.01"></path></svg
+        >
+        Iniciar sesión
+      </a>
+    </div>
   </div>
-  <div class="flex flex-row items-center gap-1">
-    <a
-      href="/"
-      class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-home"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path
-          d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path
-          d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg
-      >
-      Inicio
-    </a>
-    <a
-      href="/cursos"
-      class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-school"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path><path
-          d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path></svg
-      >
-      Cursos
-    </a>
-    <a
-      href="/cursos"
-      class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"
-        ></path><path d="M12 19l0 .01"></path></svg
-      >
-      FAQs
-    </a>
-    <a
-      href="/contacto"
-      class="font-bold text-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg hover:bg-white hover:text-black p-2 ps-3 pe-3"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="me-1 icon icon-tabler icons-tabler-outline icon-tabler-mail"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
-        ></path><path d="M3 7l9 6l9 -6"></path></svg
-      >
-      Contacto
-    </a>
+
+  <!-- Mobile Header -->
+  <div class="flex md:hidden flex-row items-center justify-between">
+    <div class="flex flex-row items-center">
+      <img
+        src="logo.webp"
+        alt="Logotipo de la Academia de Pastoral Jvenenil RPJ"
+        class="w-16 h-16 me-2"
+      />
+      <h1 class="text-lg font-bold">RPJ<br />Academy</h1>
+    </div>
+    
+    <!-- Mobile menu button -->
+    <button id="menu-button" class="p-2 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+    </button>
   </div>
-  <div class="flex flex-row items-center gap-1">
-    <a
-      href="/login"
-      class="font-bold hover:text-white hover:bg-secondary hover:border-white transition-colors duration-300 m-1 flex flex-row items-center rounded-lg bg-white text-black p-3 ps-4 pe-4"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="me-2 icon icon-tabler icons-tabler-outline icon-tabler-key"
-        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-          d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z"
-        ></path><path d="M15 9h.01"></path></svg
-      >
-      Iniciar sesión
-    </a>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+    <nav class="flex flex-col space-y-2">
+      <a href="/" class="font-bold text-white transition-colors duration-300 flex items-center rounded-lg hover:bg-white hover:text-black p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg>
+        Inicio
+      </a>
+      <a href="/cursos" class="font-bold text-white transition-colors duration-300 flex items-center rounded-lg hover:bg-white hover:text-black p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path></svg>
+        Cursos
+      </a>
+      <a href="/cursos" class="font-bold text-white transition-colors duration-300 flex items-center rounded-lg hover:bg-white hover:text-black p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path><path d="M12 19l0 .01"></path></svg>
+        FAQs
+      </a>
+      <a href="/contacto" class="font-bold text-white transition-colors duration-300 flex items-center rounded-lg hover:bg-white hover:text-black p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path><path d="M3 7l9 6l9 -6"></path></svg>
+        Contacto
+      </a>
+      <a href="https://rpj.es" target="_blank" class="font-bold text-white border border-white transition-colors duration-300 flex items-center rounded-lg p-2 mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path>
+          <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path>
+        </svg>
+        Web RPJ
+      </a>
+      <a href="/login" class="font-bold text-white bg-secondary transition-colors duration-300 flex items-center rounded-lg p-2 mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z"></path><path d="M15 9h.01"></path></svg>
+        Iniciar sesión
+      </a>
+    </nav>
   </div>
 </header>
