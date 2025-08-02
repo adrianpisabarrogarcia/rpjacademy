@@ -1,54 +1,5 @@
 ---
-const courses = [
-  {
-    title: "Herramienta de diagnostico pastoral",
-    type: "tool",
-    shortDescription:
-      "¿Quieres saber si tienes las 🛠 perfectas en tu pastoral? Contesta a este formulario y te ayudaremos a identificar qué áreas necesitas mejorar 👨‍🔧 o de lo contrario celebrarlo 🎉.",
-    url: "https://diagnostico.rpj.es/",
-    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
-    numberOfClasses: null,
-    priceEuros: 0.0,
-    dateStart: "2023-01-01",
-    dateEnd: "2023-01-31",
-  },
-  {
-    title: "Curso de Liderazgo Pastoral",
-    type: "course",
-    shortDescription:
-      "Aprende las habilidades esenciales para liderar equipos pastorales efectivos.",
-    url: "#",
-    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
-    numberOfClasses: 8,
-    priceEuros: 49.99,
-    dateStart: "2023-02-01",
-    dateEnd: "2023-03-15",
-  },
-  {
-    title: "Taller de Comunicación Efectiva",
-    type: "workshop",
-    shortDescription:
-      "Mejora tus habilidades de comunicación para transmitir el mensaje de manera clara y efectiva.",
-    url: "#",
-    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
-    numberOfClasses: 3,
-    priceEuros: 29.99,
-    dateStart: "2023-04-10",
-    dateEnd: "2023-04-24",
-  },
-  {
-    title: "Herramienta de Planificación Anual",
-    type: "tool",
-    shortDescription:
-      "Organiza tu año pastoral con esta herramienta de planificación estratégica.",
-    url: "#",
-    imageURL: "/courses/herramienta-de-procesos-pastorales.webp",
-    numberOfClasses: null,
-    priceEuros: 0.0,
-    dateStart: "2023-05-01",
-    dateEnd: null,
-  },
-];
+import courses from '../data/courses.json';
 ---
 
 <section class="mb-12 flex flex-col items-center justify-center">
@@ -79,26 +30,28 @@ const courses = [
   >
     {
       courses.map((course) => (
-        <article
-          class="course-item rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
-          data-type={course.type}
-          style={`
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${course.imageURL}');
-            background-size: cover;
-            background-position: center;
-            color: white;
-          `}
-        >
-          <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
-            {course.title}
-          </h4>
-          <div class="flex flex-col md:flex-row justify-start items-end mt-2">
-            <p class="mt-2">{course.shortDescription}</p>
-            <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
-              {course.priceEuros > 0 ? `${course.priceEuros}€` : "0€"}
-            </span>
-          </div>
-        </article>
+        <a href={`/curso/${course.id}`} class="block">
+          <article
+            class="course-item rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
+            data-type={course.type}
+            style={`
+              background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${course.imageURL}');
+              background-size: cover;
+              background-position: center;
+              color: white;
+            `}
+          >
+            <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
+              {course.title}
+            </h4>
+            <div class="flex flex-col md:flex-row justify-start items-end mt-2">
+              <p class="mt-2">{course.shortDescription}</p>
+              <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
+                {course.priceEuros > 0 ? `${course.priceEuros}€` : "0€"}
+              </span>
+            </div>
+          </article>
+        </a>
       ))
     }
   </div>

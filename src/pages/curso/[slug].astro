@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import courses from '../../data/courses.json';
+
+// Función requerida para rutas dinámicas en Astro
+export function getStaticPaths() {
+  return courses.map(course => ({
+    params: { slug: course.id },
+    props: { course },
+  }));
+}
+
+// Recibimos el curso como prop desde getStaticPaths
+const { course } = Astro.props;
+
+// Formateamos las fechas si existen
+const formatDate = (dateString) => {
+  if (!dateString) return null;
+  const date = new Date(dateString);
+  return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+};
+
+const startDate = formatDate(course.dateStart);
+const endDate = formatDate(course.dateEnd);
+---
+
+<Layout title={course.title}>
+  <main class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <!-- Imagen de cabecera -->
+      <div class="relative h-64 md:h-96">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img 
+          src={course.imageURL} 
+          alt={course.title} 
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <h1 class="text-3xl md:text-5xl font-bold text-white text-center px-4">{course.title}</h1>
+        </div>
+      </div>
+      
+      <!-- Contenido del curso -->
+      <div class="p-6 md:p-8">
+        <!-- Información básica -->
+        <div class="flex flex-wrap justify-between items-center mb-8">
+          <div class="mb-4 md:mb-0">
+            <span class="inline-block bg-primary text-white text-sm font-semibold px-3 py-1 rounded-full uppercase">
+              {course.type === 'course' ? 'Curso' : course.type === 'workshop' ? 'Taller' : 'Herramienta'}
+            </span>
+            {course.priceEuros > 0 ? (
+              <span class="inline-block bg-secondary text-white text-sm font-semibold px-3 py-1 rounded-full ml-2">
+                {course.priceEuros}€
+              </span>
+            ) : (
+              <span class="inline-block bg-green-500 text-white text-sm font-semibold px-3 py-1 rounded-full ml-2">
+                Gratuito
+              </span>
+            )}
+          </div>
+          
+          {(startDate || course.numberOfClasses) && (
+            <div class="text-gray-600">
+              {course.numberOfClasses && (
+                <p class="mb-1"><span class="font-semibold">Duración:</span> {course.numberOfClasses} sesiones</p>
+              )}
+              {startDate && (
+                <p class="mb-1"><span class="font-semibold">Inicio:</span> {startDate}</p>
+              )}
+              {endDate && (
+                <p><span class="font-semibold">Finalización:</span> {endDate}</p>
+              )}
+            </div>
+          )}
+        </div>
+        
+        <!-- Descripción completa -->
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold mb-4">Descripción</h2>
+          <p class="text-gray-700 leading-relaxed">{course.fullDescription}</p>
+        </div>
+        
+        <!-- Instructor -->
+        {course.instructor && (
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Instructor</h2>
+            <p class="text-gray-700">{course.instructor}</p>
+          </div>
+        )}
+        
+        <!-- Requisitos -->
+        {course.requirements && course.requirements.length > 0 && (
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Requisitos</h2>
+            <ul class="list-disc pl-5 text-gray-700">
+              {course.requirements.map(req => (
+                <li class="mb-1">{req}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        
+        <!-- Beneficios -->
+        {course.benefits && course.benefits.length > 0 && (
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Beneficios</h2>
+            <ul class="list-disc pl-5 text-gray-700">
+              {course.benefits.map(benefit => (
+                <li class="mb-1">{benefit}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        
+        <!-- Botón de inscripción -->
+        <div class="mt-8 text-center">
+          <a 
+            href={course.url} 
+            class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-full transition duration-300"
+            target={course.url.startsWith('http') ? "_blank" : "_self"}
+          >
+            {course.type === 'tool' ? 'Acceder a la herramienta' : 'Inscribirse ahora'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "herramienta-diagnostico",
+    "title": "Herramienta de diagnostico pastoral",
+    "type": "tool",
+    "shortDescription": "¿Quieres saber si tienes las 🛠 perfectas en tu pastoral? Contesta a este formulario y te ayudaremos a identificar qué áreas necesitas mejorar 👨‍🔧 o de lo contrario celebrarlo 🎉.",
+    "fullDescription": "Esta herramienta te permite evaluar de manera completa todos los aspectos de tu pastoral. A través de un formulario detallado, analizamos las fortalezas y áreas de mejora en tu ministerio, ofreciéndote recomendaciones personalizadas para optimizar tu labor pastoral.",
+    "url": "https://diagnostico.rpj.es/",
+    "imageURL": "/courses/herramienta-de-procesos-pastorales.webp",
+    "numberOfClasses": null,
+    "priceEuros": 0.0,
+    "dateStart": "2023-01-01",
+    "dateEnd": "2023-01-31",
+    "instructor": "Equipo RPJ",
+    "requirements": ["Acceso a internet", "Disposición para una evaluación honesta"],
+    "benefits": [
+      "Diagnóstico completo de tu pastoral",
+      "Recomendaciones personalizadas",
+      "Recursos adicionales según tus necesidades"
+    ]
+  },
+  {
+    "id": "liderazgo-pastoral",
+    "title": "Curso de Liderazgo Pastoral",
+    "type": "course",
+    "shortDescription": "Aprende las habilidades esenciales para liderar equipos pastorales efectivos.",
+    "fullDescription": "Este curso intensivo te proporcionará todas las herramientas necesarias para desarrollar un liderazgo pastoral efectivo. Aprenderás técnicas de comunicación, gestión de equipos, resolución de conflictos y planificación estratégica, todo desde una perspectiva pastoral centrada en valores cristianos.",
+    "url": "#",
+    "imageURL": "/courses/herramienta-de-procesos-pastorales.webp",
+    "numberOfClasses": 8,
+    "priceEuros": 49.99,
+    "dateStart": "2023-02-01",
+    "dateEnd": "2023-03-15",
+    "instructor": "Pastor Juan Pérez",
+    "requirements": ["Experiencia básica en pastoral", "Compromiso de 5 horas semanales"],
+    "benefits": [
+      "Certificado de finalización",
+      "Material didáctico descargable",
+      "Acceso a comunidad de líderes pastorales",
+      "Mentoría personalizada"
+    ]
+  },
+  {
+    "id": "comunicacion-efectiva",
+    "title": "Taller de Comunicación Efectiva",
+    "type": "workshop",
+    "shortDescription": "Mejora tus habilidades de comunicación para transmitir el mensaje de manera clara y efectiva.",
+    "fullDescription": "En este taller práctico, desarrollarás habilidades de comunicación efectiva para tu ministerio. Aprenderás técnicas de oratoria, preparación de mensajes impactantes, uso de recursos visuales y adaptación del mensaje a diferentes audiencias. Incluye ejercicios prácticos y retroalimentación personalizada.",
+    "url": "#",
+    "imageURL": "/courses/herramienta-de-procesos-pastorales.webp",
+    "numberOfClasses": 3,
+    "priceEuros": 29.99,
+    "dateStart": "2023-04-10",
+    "dateEnd": "2023-04-24",
+    "instructor": "Dra. María González",
+    "requirements": ["Ninguno, abierto a todos los niveles"],
+    "benefits": [
+      "Grabación de las sesiones",
+      "Plantillas para preparación de mensajes",
+      "Evaluación personalizada de tu estilo comunicativo"
+    ]
+  },
+  {
+    "id": "planificacion-anual",
+    "title": "Herramienta de Planificación Anual",
+    "type": "tool",
+    "shortDescription": "Organiza tu año pastoral con esta herramienta de planificación estratégica.",
+    "fullDescription": "Nuestra herramienta de planificación anual te permite organizar de manera eficiente todas las actividades pastorales del año. Incluye calendarios personalizables, sistemas de seguimiento de objetivos, gestión de recursos y evaluación de resultados, todo adaptado a las necesidades específicas de tu ministerio.",
+    "url": "#",
+    "imageURL": "/courses/herramienta-de-procesos-pastorales.webp",
+    "numberOfClasses": null,
+    "priceEuros": 0.0,
+    "dateStart": "2023-05-01",
+    "dateEnd": null,
+    "instructor": "Equipo RPJ",
+    "requirements": ["Acceso a internet", "Conocimientos básicos de planificación"],
+    "benefits": [
+      "Plantillas personalizables",
+      "Recordatorios automáticos",
+      "Informes de progreso",
+      "Sincronización con calendario"
+    ]
+  }
+]
