@@ -1,5 +1,26 @@
 [
   {
+    "id": "curso-animador-pastoral-jovenes",
+    "title": "Curso Universitario de Animador de Procesos de Pastoral con Jóvenes",
+    "type": "course",
+    "shortDescription": "Diplomado de formación integral para acompañantes y coordinadores de pastoral juvenil, certificado por la Universidad Cristóbal Colón.",
+    "fullDescription": "Diplomado de formación integral para acompañantes y coordinadores de pastoral juvenil, certificado por la Universidad Cristóbal Colón (Veracruz, México). Modalidad online por videoconferencia con plataforma virtual y contenidos disponibles en cualquier momento.",
+    "url": "#",
+    "imageURL": "/courses/herramienta-de-procesos-pastorales.webp",
+    "numberOfClasses": 54,
+    "priceEuros": 700.0,
+    "dateStart": "2024-10-19",
+    "dateEnd": "2025-06-30",
+    "instructor": "Equipo de Formación RPJ y Universidad Cristóbal Colón",
+    "requirements": ["Ser acompañante de grupos juveniles", "Coordinador de movimientos", "Trabajar en parroquias, congregaciones o colegios"],
+    "benefits": [
+      "Desarrollo emocional, afectiva y espiritual de jóvenes",
+      "Competencias para aplicar la Palabra de Dios en pastoral juvenil",
+      "Uso de medios digitales y artísticos para evangelización",
+      "Fortalecimiento del liderazgo pastoral y planificación de proyectos"
+    ]
+  },
+  {
     "id": "herramienta-diagnostico",
     "title": "Herramienta de diagnostico pastoral",
     "type": "tool",

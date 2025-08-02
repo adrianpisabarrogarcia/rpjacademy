@@ -26,14 +26,14 @@ import courses from '../data/courses.json';
     >
   </div>
   <div
+    id="courses-container"
     class="mt-4 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 md:mx-8 lg:mx-16"
   >
     {
       courses.map((course) => (
-        <a href={`/curso/${course.id}`} class="block">
+        <a href={`/curso/${course.id}`} class="block h-full course-item" data-type={course.type}>
           <article
-            class="course-item rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary"
-            data-type={course.type}
+            class="rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary h-full flex flex-col justify-between"
             style={`
               background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${course.imageURL}');
               background-size: cover;
@@ -44,11 +44,13 @@ import courses from '../data/courses.json';
             <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
               {course.title}
             </h4>
-            <div class="flex flex-col md:flex-row justify-start items-end mt-2">
+            <div class="flex flex-col md:flex-row justify-start items-end mt-4">
               <p class="mt-2">{course.shortDescription}</p>
-              <span class="bg-primary w-14 aspect-square p-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center">
-                {course.priceEuros > 0 ? `${course.priceEuros}€` : "0€"}
-              </span>
+              {course.dateEnd && (
+                <span class="bg-primary px-3 py-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center text-sm whitespace-nowrap">
+                  Hasta: {new Date(course.dateEnd).toLocaleDateString('es-ES', {day: 'numeric', month: 'short'})}
+                </span>
+              )}
             </div>
           </article>
         </a>
@@ -56,12 +58,14 @@ import courses from '../data/courses.json';
     }
   </div>
 
-  <script is:inline>
-    // Función para filtrar los cursos
-    function filterCourses(filterType) {
-      const courseItems = document.querySelectorAll(".course-item");
+  <script define:vars={{ coursesData: courses }}>
+    // Datos de los cursos ya están disponibles como coursesData
+    
+    // Función para renderizar los cursos filtrados
+    function renderFilteredCourses(filterType) {
+      const coursesContainer = document.getElementById("courses-container");
       const filterButtons = document.querySelectorAll(".filter-btn");
-
+      
       // Actualizar clases de los botones
       filterButtons.forEach((button) => {
         if (button.dataset.filter === filterType) {
@@ -72,14 +76,51 @@ import courses from '../data/courses.json';
           button.classList.add("bg-secondary");
         }
       });
-
-      // Mostrar/ocultar cursos según el filtro
-      courseItems.forEach((item) => {
-        if (filterType === "all" || item.dataset.type === filterType) {
-          item.style.display = "";
-        } else {
-          item.style.display = "none";
-        }
+      
+      // Filtrar los cursos
+      const filteredCourses = filterType === "all" 
+        ? coursesData 
+        : coursesData.filter(course => course.type === filterType);
+      
+      // Limpiar el contenedor
+      coursesContainer.innerHTML = "";
+      
+      // Renderizar los cursos filtrados
+      filteredCourses.forEach(course => {
+        const courseElement = document.createElement("a");
+        courseElement.href = `/curso/${course.id}`;
+        courseElement.className = "block h-full course-item";
+        courseElement.dataset.type = course.type;
+        
+        const dateFormatted = course.dateEnd 
+          ? new Date(course.dateEnd).toLocaleDateString('es-ES', {day: 'numeric', month: 'short'}) 
+          : null;
+        
+        courseElement.innerHTML = `
+          <article
+            class="rounded-xl p-3 m-2 hover:cursor-pointer hover:border-4 border-4 border-white hover:border-primary h-full flex flex-col justify-between"
+            style="
+              background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${course.imageURL}');
+              background-size: cover;
+              background-position: center;
+              color: white;
+            "
+          >
+            <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
+              ${course.title}
+            </h4>
+            <div class="flex flex-col md:flex-row justify-start items-end mt-4">
+              <p class="mt-2">${course.shortDescription}</p>
+              ${course.dateEnd ? `
+                <span class="bg-primary px-3 py-2 m-2 rounded-full font-semibold border-2 border-white flex items-center justify-center text-sm whitespace-nowrap">
+                  Hasta: ${dateFormatted}
+                </span>
+              ` : ''}
+            </div>
+          </article>
+        `;
+        
+        coursesContainer.appendChild(courseElement);
       });
     }
 
@@ -90,12 +131,12 @@ import courses from '../data/courses.json';
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
           const filterType = button.dataset.filter;
-          filterCourses(filterType);
+          renderFilteredCourses(filterType);
         });
       });
 
       // Inicialmente mostrar todos
-      filterCourses("all");
+      renderFilteredCourses("all");
     });
   </script>
 </section>
